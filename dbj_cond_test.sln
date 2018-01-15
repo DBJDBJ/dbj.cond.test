@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "dbj_cond_test", "dbj_cond_test\dbj_cond_test.njsproj", "{7D42BC72-53FA-4B55-8AEA-71983F43C9F2}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "dbj.cond.test", "dbj_cond_test\dbj.cond.test.njsproj", "{7D42BC72-53FA-4B55-8AEA-71983F43C9F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
