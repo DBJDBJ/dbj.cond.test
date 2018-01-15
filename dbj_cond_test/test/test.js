@@ -3,7 +3,6 @@
     MIT (c) 2018 dbj.org
  */
 const assert = require('assert');
-const dbj_nano = require("../dbj.nanolib.js");
 const dbj               = require('dbj.cond');
 const dbj_comparators   = require('../node_modules/dbj.cond/dbj.cond.comparators.js');
 const colors = require('colors');
@@ -11,7 +10,8 @@ const colors = require('colors');
 describe('String padding', function () {
 
     describe("String.prototype.padStart", function () {
-        if ('"ABC".padStart(5,"-"), == "--ABC"', function () {
+
+        it ('"ABC".padStart(5,"-"), == "--ABC"', function () {
             assert.equal(
                 "ABC".padStart(5, "-"), "--ABC"
             );

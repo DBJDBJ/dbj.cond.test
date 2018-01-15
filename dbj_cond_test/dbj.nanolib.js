@@ -36,7 +36,9 @@ String.prototype.padEnd =
 
 if ("undefined" == typeof dbj) dbj = {};
 
-module.exports = dbj.nano = {
-        'padStart': String.prototype.padStart,
-            'padEnd': String.prototype.padEnd
+dbj.nano = {
+    'padStart': function (context, maxlen, filler) { return context.padStart(maxlen, filler ); } ,
+    'padEnd': function (context, maxlen, filler) { return context.padEnd(maxlen, filler); }
 };
+
+module.exports = dbj.nano;

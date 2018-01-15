@@ -35,10 +35,7 @@
     <Compile Include="test\test.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="dbj_complex_comparators_testing.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="nanotest.js">
+    <Compile Include="test\dbj_complex_comparators_testing.js">
       <SubType>Code</SubType>
     </Compile>
     <Content Include="package.json" />

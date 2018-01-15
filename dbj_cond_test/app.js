@@ -1,5 +1,6 @@
 // 'use strict';
 
+debugger;
 
 const complexity    = require("./dbj_complex_comparators_testing.js");
 const nanotest = require("./nanotest.js");
