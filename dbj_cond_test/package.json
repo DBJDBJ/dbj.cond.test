@@ -5,5 +5,14 @@
   "main": "app.js",
   "author": {
     "name": "dusan"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "dbj.cond": "^3.0.2",
+    "mocha": "^4.1.0",
+    "tape": "^4.8.0"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
