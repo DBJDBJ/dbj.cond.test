@@ -1,4 +1,4 @@
-﻿# dbj_cond_test
+﻿# dbj.cond.test
 
 
 (c) 2009-2018 .. and beyond, by dbj.org  
