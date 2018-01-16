@@ -1,4 +1,6 @@
 {
+  "license": "Apache-2.0",
+  "private": true,
   "name": "dbj_cond_test",
   "version": "1.0.0",
   "description": "dbj_cond_test",
@@ -12,8 +14,5 @@
     "dbj.cond.comparators": "^1.0.0",
     "deep-equal": "^1.0.1",
     "fast-deep-equal": "^1.0.0"
-  },
-  "scripts": {
-    "test": "mocha"
   }
 }
