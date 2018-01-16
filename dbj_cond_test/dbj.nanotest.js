@@ -1,4 +1,5 @@
-﻿/*
+﻿const color = require("colors");
+/*
 http://2ality.com/2015/11/string-padding.html
 */
 
@@ -34,11 +35,39 @@ String.prototype.padEnd =
         return string_padding_(this, fillString, false);
     };
 
+
+
 if ("undefined" == typeof dbj) dbj = {};
 
 dbj.nano = {
     'padStart': function (context, maxlen, filler) { return context.padStart(maxlen, filler ); } ,
-    'padEnd': function (context, maxlen, filler) { return context.padEnd(maxlen, filler); }
+    'padEnd': function (context, maxlen, filler) { return context.padEnd(maxlen, filler); },
+    'test': function (prompt, cb) {
+
+        this.msg = function (s_) {
+            console.log(s_.padEnd(99).bold);
+        }
+
+        var retval = true;
+        //console.log("\n");
+        console.log(" ".padEnd(99));
+        //console.log("\n");
+        console.log((prompt + " |").padEnd(99,'-').bold.cyan);
+        try {
+            if (true == cb(this)) {
+                console.info("OK".bold.green);
+                retval = true;
+            } else {
+                console.error("FAILED".bold.red);
+                retval = false;
+            }
+        } catch (x) {
+            console.error(("Exception: " + x.message).padEnd(99).bold.red);
+            retval = false;
+        }
+        console.log(" ".padEnd(99));
+        return retval;
+    }
 };
 
 module.exports = dbj.nano;

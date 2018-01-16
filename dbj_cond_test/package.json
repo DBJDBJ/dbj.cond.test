@@ -8,11 +8,12 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
-    "dbj.cond": "^3.0.2",
-    "mocha": "^4.1.0"
+    "dbj.cond": "^3.0.6",
+    "dbj.cond.comparators": "^1.0.0",
+    "deep-equal": "^1.0.1",
+    "fast-deep-equal": "^1.0.0"
   },
   "scripts": {
-    "test": "mocha",
-    "debug-mocha": "iron-node node_modules/mocha/bin/_mocha"
+    "test": "mocha"
   }
 }
