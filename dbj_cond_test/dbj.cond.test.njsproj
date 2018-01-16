@@ -36,9 +36,6 @@
     <Compile Include="dbj.nanotest.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="string_padding.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="dbj.cond.simplex.js">
       <SubType>Code</SubType>
     </Compile>
