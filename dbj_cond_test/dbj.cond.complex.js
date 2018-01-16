@@ -96,6 +96,11 @@ module.exports.run = function () {
             'dbj.cond(["2D",[1, 2]], [3,2], false, [1,2], "Found!", "None found")'
         );
 
+        test_this_comparator(dbj.compare.multi,
+            "Found!",
+            'dbj.cond([{1:2},{3:4}], {2:3}, false, {3:4}, "Found!", "None found")'
+        );
+
         return true;
 
     });
