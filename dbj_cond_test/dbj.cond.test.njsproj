@@ -39,6 +39,9 @@
     <Compile Include="dbj.cond.simplex.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="LICENSE">
+      <SubType>Code</SubType>
+    </Compile>
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 ﻿const color = require("colors");
 /*
+inspired by
 http://2ality.com/2015/11/string-padding.html
 */
 
@@ -35,13 +36,16 @@ String.prototype.padEnd =
         return string_padding_(this, fillString, false);
     };
 
-
-
+/*
+*/
 if ("undefined" == typeof dbj) dbj = {};
 
 dbj.nano = {
     'padStart': function (context, maxlen, filler) { return context.padStart(maxlen, filler ); } ,
     'padEnd': function (context, maxlen, filler) { return context.padEnd(maxlen, filler); },
+    'evil': function evalInContext(jscode, context) {
+        return function () { return eval(jscode); }.call(context);
+    },
     'test': function (prompt, cb) {
 
         this.msg = function (s_) {
@@ -52,7 +56,7 @@ dbj.nano = {
         //console.log("\n");
         console.log(" ".padEnd(99));
         //console.log("\n");
-        console.log((prompt + " |").padEnd(99,'-').bold.cyan);
+        console.log((prompt + " |").padEnd(99,'-').bold.yellow);
         try {
             if (true == cb(this)) {
                 console.info("OK".bold.green);

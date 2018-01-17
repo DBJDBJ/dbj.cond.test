@@ -1,7 +1,17 @@
-﻿'use strict'
+﻿/*
+Copyright 2018 dbj.org
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
+on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+*/'use strict'
 /**
  *  test dbj complex comparators with cond
-    MIT (c) 2018 dbj.org
  */
 const nano = require("./dbj.nanotest");
 const dbj = require('dbj.cond');
@@ -17,10 +27,6 @@ const dbj_comparators = require('dbj.cond.comparators');
  *                     'deep-equal' and the rest
  *                     jQuery qUnit contains few, etc.
  */
-
-const input_value = "A";
-const input_array = ["A", "B", "C"];
-const input_object = { "A": 1, "B": 2, "C": 3 };
 
 function test_this_comparator(compfun, required_rezult, expression) {
 
@@ -64,7 +70,7 @@ module.exports.run = function () {
 
     });
 
-    dbj.nano.test("dbj.cond using dbj cond arr comparator with fast-deep-equal as secondary comparator", function (n) {
+    dbj.nano.test("dbj.cond using dbj cond arr comparator + fast-deep-equal as secondary comparator", function (n) {
 
         const deep_equal = require("fast-deep-equal");
         dbj.cond.secondary_comparator = deep_equal;
@@ -76,7 +82,7 @@ module.exports.run = function () {
         return true;
     });
 
-    dbj.nano.test("dbj.cond using dbj cond multi comparator with fast-deep-equal as secondary comparator", function (n) {
+    dbj.nano.test("dbj.cond using dbj cond multi comparator + fast-deep-equal as secondary comparator", function (n) {
 
         const deep_equal = require("fast-deep-equal");
         dbj.cond.secondary_comparator = deep_equal;
