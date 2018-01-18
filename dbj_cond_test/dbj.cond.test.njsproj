@@ -12,7 +12,7 @@
     <ProjectGuid>7d42bc72-53fa-4b55-8aea-71983f43c9f2</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>index.js</StartupFile>
+    <StartupFile>toolbench\tests\testrun.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
