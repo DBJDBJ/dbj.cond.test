@@ -42,8 +42,17 @@
     <Compile Include="LICENSE">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="toolbench\benchmark\index.js" />
+    <Compile Include="toolbench\tests\testrun.js" />
+    <Compile Include="toolbench\tests\testlist.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="toolbench\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="toolbench\" />
+    <Folder Include="toolbench\benchmark\" />
+    <Folder Include="toolbench\tests\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

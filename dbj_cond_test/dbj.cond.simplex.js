@@ -46,7 +46,7 @@ function test_this_comparator(required_rezult, expression, compfun ) {
 }
 
 module.exports.run = function () {
-    dbj.nano.test('dbj.cond simple tests', function (n) {
+    dbj.nano.group('dbj.cond simple tests', function (n) {
 
         n.msg("using standard simple comparator: " + dbj.cond.comparator );
         test_this_comparator("input found",

@@ -9,17 +9,18 @@ http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
 on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
-*/'use strict'
+*/
+'use strict'
 /**
  *  test dbj complex comparators with cond
  */
-const nano = require("./dbj.nanotest");
-const dbj = require('dbj.cond');
-const dbj_comparators = require('dbj.cond.comparators');
+require("./dbj.nanotest"); // defines dbj.nano
+require('dbj.cond'); // defines dbj.cond
+require('dbj.cond.comparators'); // defines dbj.comparator
 
 /**
- * At this point both dbj and dbj_comparators are equal
- * They contain :
+ * At this point we have dbj object
+ * That contains :
  *    core          -- object -- dbj core lib
  *    cond          -- function
  *    comparator    -- swappable comparators for dbj.cond
@@ -46,7 +47,7 @@ function test_this_comparator(compfun, required_rezult, expression) {
 
 module.exports.run = function () {
 
-    dbj.nano.test("dbj.cond using 'deep-equal' comparator", function (n) {
+    dbj.nano.group("dbj.cond using 'deep-equal' comparator", function (n) {
 
         const deep_qual = require("deep-equal");
         
@@ -58,7 +59,7 @@ module.exports.run = function () {
 
     });
 
-    dbj.nano.test("dbj.cond using 'fast-deep-equal' comparator", function (n) {
+    dbj.nano.group("dbj.cond using 'fast-deep-equal' comparator", function (n) {
 
         const deep_qual = require("fast-deep-equal");
 
@@ -70,7 +71,7 @@ module.exports.run = function () {
 
     });
 
-    dbj.nano.test("dbj.cond using dbj cond arr comparator + fast-deep-equal as secondary comparator", function (n) {
+    dbj.nano.group("dbj.cond using dbj cond arr comparator + fast-deep-equal as secondary comparator", function (n) {
 
         const deep_equal = require("fast-deep-equal");
         dbj.cond.secondary_comparator = deep_equal;
@@ -82,7 +83,7 @@ module.exports.run = function () {
         return true;
     });
 
-    dbj.nano.test("dbj.cond using dbj cond multi comparator + fast-deep-equal as secondary comparator", function (n) {
+    dbj.nano.group("dbj.cond using dbj cond multi comparator + fast-deep-equal as secondary comparator", function (n) {
 
         const deep_equal = require("fast-deep-equal");
         dbj.cond.secondary_comparator = deep_equal;
