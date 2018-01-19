@@ -8,7 +8,7 @@
 
 # &nbsp;
 
-Testing dbj.cond and dbj.cond comparators together
+Testing dbj.cond and dbj.cond comparators together.
 
 Please do feel free to send us your code and comments. 
 We might publish it and discuss it on https://dbj.org
