@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and limitations 
 /**
  *  test shallow aka simplex comparators with dbj cond
  */
-const nano = require("./dbj.nanotest") ;
+require("../../dbj.nanotest"); // defines dbj.nano
 const dbj = require('dbj.cond');
 const dbj_comparators = require('dbj.cond.comparators');
 

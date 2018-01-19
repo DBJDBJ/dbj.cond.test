@@ -14,9 +14,10 @@ See the License for the specific language governing permissions and limitations 
 /**
  *  test dbj complex comparators with cond
  */
-require("./dbj.nanotest"); // defines dbj.nano
+require("../../dbj.nanotest"); // defines dbj.nano
 require('dbj.cond'); // defines dbj.cond
 require('dbj.cond.comparators'); // defines dbj.comparator
+const util = require('util');
 
 /**
  * At this point we have dbj object

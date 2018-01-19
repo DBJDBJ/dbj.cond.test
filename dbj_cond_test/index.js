@@ -12,6 +12,8 @@ See the License for the specific language governing permissions and limitations 
 */
 'use strict';
 
-require("./dbj.cond.simplex").run();
-require("./dbj.cond.complex").run();
+// require("./toolbench/dbj/dbj.cond.simplex").run();
+// require("./toolbench/dbj/dbj.cond.complex").run();
+require("./toolbench/dbj_comparators_tests/testrun").run();
+// require("./toolbench/benchmark/index").run();
 // eof
