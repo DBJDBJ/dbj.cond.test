@@ -1,7 +1,7 @@
 'use strict';
 exports.run = function () {
 
-    require("dbj.cond.comparators");
+    const dummy = require("dbj.cond.comparators");
     const color = require("colors");
     const fast_deep_equal = require('fast-deep-equal');
     const strictEqual = require('assert').deepStrictEqual;

@@ -15,5 +15,12 @@
     "dbj.cond.comparators": "^0.1.2",
     "deep-equal": "^1.0.1",
     "fast-deep-equal": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-strongloop": "^2.1.0"
+  },
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore ."
   }
 }
