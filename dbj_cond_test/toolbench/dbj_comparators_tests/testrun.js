@@ -5,7 +5,7 @@ exports.run = function() {
   require('dbj.cond.comparators'); // dbj.compare
   const fast_deep_eq = require('fast-deep-equal');
   const tests = require('./testlist');
-  const assert = require('assert');
+  // const assert = require('assert');
 
   // use the factory method on dbj comparators
   const comparator_to_test = dbj.compare.make('arr', fast_deep_eq);
