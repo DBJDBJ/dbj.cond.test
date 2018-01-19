@@ -76,17 +76,18 @@ module.exports.run = function() {
 
   });
 
-  dbj.nano.group('dbj.cond using dbj cond arr comparator + fast-deep-equal as secondary comparator',
-    function(n) {
+    dbj.nano.group('dbj.cond using dbj cond arr comparator + fast-deep-equal as secondary comparator',
 
-const deep_equal = require('fast-deep-equal');
-dbj.cond.secondary_comparator = deep_equal;
+        function (n) {
 
-test_this_comparator(dbj.compare.arr,
-    'Found!',
-    'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
-);
-return true;
+    const deep_equal = require('fast-deep-equal');
+    dbj.cond.secondary_comparator = deep_equal;
+
+    test_this_comparator(dbj.compare.arr,
+        'Found!',
+        'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
+    );
+        return true;
 });
 
 dbj.nano.group('dbj.cond using dbj cond multi comparator + fast-deep-equal as secondary comparator',
