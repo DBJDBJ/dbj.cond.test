@@ -8,7 +8,9 @@
 
 # &nbsp;
 
-Testing dbj.cond and dbj.cond comparators together.
+Testing 
+<a href="https://www.npmjs.com/package/dbj.cond" target="_blank">dbj.cond</a>
+ and <a href="" target="_blank">dbj.cond.comparators</a> together.
 
 Please do feel free to send us your code and comments. 
 We might publish it and discuss it on https://dbj.org
