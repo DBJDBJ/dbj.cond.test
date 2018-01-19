@@ -1,1 +1,9 @@
-{"extends": "strongloop"}
+{
+  "extends": "strongloop",
+  "rules": {
+    "max-len": [ 2, 120, 8 ] // DBJ added
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  }  
+}

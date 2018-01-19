@@ -12,64 +12,64 @@ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either expres
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-const color = require("colors");
+const color = require('colors');
 
-(function (dbj, undefined) {
+(function(dbj, undefined) {
 
-    dbj.nano = {
-        'padStart': function (context, maxlen, filler) { return context.padStart(maxlen, filler); },
-        'padEnd': function (context, maxlen, filler) { return context.padEnd(maxlen, filler); },
-        'evil': function evalInContext(jscode, context) {
-            return function () { return eval(jscode); }.call(context);
-        },
-        'msg' : function (s_) {
-            console.log(s_.padEnd(99).bold);
-        },
-        'group': function (prompt, cb) {
-            console.log();
-            console.log((prompt).padEnd(99, ' ').bold.underline.white);
-            console.log();
-            cb(dbj.nano);
-            console.log();
-        },
-        'test': function (prompt, cb) {
+  dbj.nano = {
+    padStart: function(context, maxlen, filler) { return context.padStart(maxlen, filler); },
+    padEnd: function(context, maxlen, filler) { return context.padEnd(maxlen, filler); },
+    evil: function evalInContext(jscode, context) {
+      return function() { return eval(jscode); }.call(context);
+    },
+    msg: function(s_) {
+      console.log(s_.padEnd(99).bold);
+    },
+    group: function(prompt, cb) {
+      console.log();
+      console.log((prompt).padEnd(99, ' ').bold.underline.white);
+      console.log();
+      cb(dbj.nano);
+      console.log();
+    },
+    test: function(prompt, cb) {
 
-            var retval = true;
-            console.log();
-            console.log((prompt + " |").padEnd(99, ' '));
-            try {
-                if (true == cb( dbj.nano )) {
-                    console.info("OK".bold.green);
-                    retval = true;
-                } else {
-                    console.error("FAILED".bold.red);
-                    retval = false;
-                }
-            } catch (x) {
-                console.error(("Exception: " + x.message).padEnd(99).bold.red);
-                retval = false;
-            }
-            return retval;
+      var retval = true;
+      console.log();
+      console.log((prompt + ' |').padEnd(99, ' '));
+      try {
+        if (cb(dbj.nano) == true) {
+          console.info('OK'.bold.green);
+          retval = true;
+        } else {
+          console.error('FAILED'.bold.red);
+          retval = false;
         }
-    };
+      } catch (x) {
+        console.error(('Exception: ' + x.message).padEnd(99).bold.red);
+        retval = false;
+      }
+      return retval;
+    },
+  };
 
-    /*
+  /*
     export to Node.JS
     (also works in the presence of qUnit "module")
     */
-    if ("undefined" != typeof module) {
-        module['exports'] = dbj;  // for node js usage
-    }
+  if (typeof module !== 'undefined') {
+    module['exports'] = dbj; // for node js usage
+  }
 
-    /*--------------------------------------------------------------------------------------------*/
-}(function () {
-    // for dom  this creates window.dbj
-    // for node this creates module local var
-    if ("undefined" == typeof dbj)
-        dbj = {};
-    return dbj;
+  /* --------------------------------------------------------------------------------------------*/
+}(function() {
+  // for dom  this creates window.dbj
+  // for node this creates module local var
+  if (typeof dbj === 'undefined')
+    dbj = {};
+  return dbj;
 }()
-    )
+)
 );
 
 /*

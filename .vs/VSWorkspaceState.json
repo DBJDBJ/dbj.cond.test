@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\dbj_cond_test",
+    "\\dbj_cond_test\\toolbench",
+    "\\dbj_cond_test\\toolbench\\dbj_comparators_tests",
+    "\\qunittest",
+    "\\tapetest"
+  ],
+  "SelectedNode": "\\dbj_cond_test\\toolbench\\dbj_comparators_tests",
+  "PreviewInSolutionExplorer": false
+}

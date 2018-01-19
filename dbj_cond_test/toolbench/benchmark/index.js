@@ -1,20 +1,17 @@
 'use strict';
-exports.run = function () {
+exports.run = function() {
 
-    const dummy = require("dbj.cond.comparators");
-    const color = require("colors");
-    const fast_deep_equal = require('fast-deep-equal');
-    const strictEqual = require('assert').deepStrictEqual;
-    const tests = require('../dbj_comparators_tests/testlist');
-    const Benchmark = require('benchmark');
-    const suite = new Benchmark.Suite;
+  require('dbj.cond.comparators');
+  const color = require('colors');
+  const fast_deep_equal = require('fast-deep-equal');
+  const strictEqual = require('assert').deepStrictEqual;
+  const tests = require('../dbj_comparators_tests/testlist');
+  const Benchmark = require('benchmark');
+  const suite = new Benchmark.Suite;
 
-
-
-
-    const equalPackages = {
-        'fast-deep-equal': fast_deep_equal,
-        /*
+  const equalPackages = {
+    'fast-deep-equal': fast_deep_equal,
+    /*
         'shallow-equal-fuzzy': require('shallow-equal-fuzzy'),
       'nano-equal': true,
       'underscore.isEqual': require('underscore').isEqual,
@@ -22,16 +19,16 @@ exports.run = function () {
       'deep-equal': true,
       'deep-eql': true,
         */
-        'dbj cond arr': dbj.compare.arr,
-        'dbj cond lookup': dbj.compare.lookup
-    };
+    'dbj cond arr': dbj.compare.arr,
+    'dbj cond lookup': dbj.compare.lookup,
+  };
 
-    console.log("\nBenchmarking\n".underline.padStart(60));
+  console.log('\nBenchmarking\n'.underline.padStart(60));
 
-    for (const equalName in equalPackages) {
-        let equalFunc = equalPackages[equalName];
-        if (equalFunc === true) equalFunc = require(equalName);
-        /*
+  for (const equalName in equalPackages) {
+    let equalFunc = equalPackages[equalName];
+    if (equalFunc === true) equalFunc = require(equalName);
+    /*
       for (const testSuite of tests) {
           for (const test of testSuite.tests) {
           try {
@@ -43,25 +40,25 @@ exports.run = function () {
         }
       }
         */
-        console.log((equalName + "\tbenchmarking started").padStart(60));
-        suite.add(equalName, function () {
-            for (const testSuite of tests) {
-                for (const test of testSuite.tests) {
-                    if (test.description != 'pseudo array and equivalent array are not equal')
-                        equalFunc(test.value1, test.value2, fast_deep_equal);
-                }
-            }
-        });
-    }
+    console.log((equalName + '\tbenchmarking started').padStart(60));
+    suite.add(equalName, function() {
+      for (const testSuite of tests) {
+        for (const test of testSuite.tests) {
+          if (test.description != 'pseudo array and equivalent array are not equal')
+            equalFunc(test.value1, test.value2, fast_deep_equal);
+        }
+      }
+    });
+  }
 
-    console.log("\nRezults\n".underline.padStart(60));
+  console.log('\nRezults\n'.underline.padStart(60));
 
-    suite
-        .on('cycle', (event) => console.log(String(event.target)))
-        .on('complete', function () {
-            console.log(
-                ('\nThe fastest is ' + this.filter('fastest').map('name') + "\n").bold.cyan
-            );
-        })
-        .run({ async: true });
-}
+  suite
+    .on('cycle', (event) => console.log(String(event.target)))
+    .on('complete', function() {
+      console.log(
+        ('\nThe fastest is ' + this.filter('fastest').map('name') + '\n').bold.cyan
+      );
+    })
+    .run({ async: true });
+};
