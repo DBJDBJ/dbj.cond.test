@@ -1,5 +1,7 @@
 'use strict';
 
+/*global dbj:true*/
+
 exports.run = function () {
 
   require('dbj.cond.comparators');

@@ -2,46 +2,52 @@
 /*
 Copyright 2018 dbj.org
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed
 on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-const color = require('colors');
+/*global dbj:true*/
+
+require('colors');
 
 (function(dbj, undefined) {
 
   dbj.nano = {
-    padStart: function(context, maxlen, filler) { return context.padStart(maxlen, filler); },
-    padEnd: function(context, maxlen, filler) { return context.padEnd(maxlen, filler); },
-    evil: function evalInContext(jscode, context) {
-      return function() { return eval(jscode); }.call(context);
+    'padStart': function(context, maxlen, filler) { return context.padStart(maxlen, filler); },
+    'padEnd': function(context, maxlen, filler) { return context.padEnd(maxlen, filler); },
+    'evil': function evalInContext(jscode, context) {
+      return function() { return (new Function ("return " + jscode))(); }.call(context);
     },
-    msg: function(s_) {
+    'msg': function(s_) {
       console.log(s_.padEnd(99).bold);
     },
-    group: function(prompt, cb) {
+    'group': function(prompt, cb) {
       console.log();
       console.log((prompt).padEnd(99, ' ').bold.underline.white);
-      console.log();
+      // console.log();
       cb(dbj.nano);
-      console.log();
+      // console.log();
     },
-    test: function(prompt, cb) {
+    'test': function(prompt, cb) {
 
-      var retval = true;
-      console.log();
-      console.log((prompt + ' |').padEnd(99, ' '));
+      let retval = true;
+      // console.log();
       try {
         if (cb(dbj.nano) == true) {
-          console.info('OK'.bold.green);
+            // print on FAILED only
+          // console.info('OK'.bold.green);
           retval = true;
         } else {
+            // print on FAILED only
+          console.log((prompt).padEnd(99, ' '));
           console.error('FAILED'.bold.red);
           retval = false;
         }
