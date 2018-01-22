@@ -34,44 +34,42 @@ require('dbj.cond.comparators');
  *                     jQuery qUnit contains few, etc.
  */
 
-function test_this_comparator(required_rezult, expression, compfun) {
+function test_with_comparators(required_rezult, expression) {
 
-  if (compfun) dbj.cond.comparator = compfun;
-  const prompt = expression + ', should return: >' + required_rezult + '<';
+    const prompt =
+        "Using comparators: " + dbj.cond.set() + "\n" +
+        expression + ', should return: >' + required_rezult + '<';
 
-  dbj.nano.test(prompt, function(n) {
-    const retval = eval(expression);
-    // n.msg('Returned: >' + retval + '<');
-    return (
-      retval == required_rezult
-    );
-  });
+    dbj.nano.test(prompt, function (n) {
+        const retval = eval(expression);
+        if (retval !== required_rezult)
+           n.msg('Returned: >' + retval + '<');
+        return (
+            retval === required_rezult
+        );
+    });
 
-  if (compfun) dbj.cond.comparator = dbj.compare.standard; // switch back
 }
 
 module.exports.run = function() {
   dbj.nano.group('dbj.cond simple tests', function(n) {
 
-    n.msg('using standard simple comparator: ' + dbj.cond.comparator);
-    test_this_comparator('input found',
+    test_with_comparators('input found',
       'dbj.cond("input", "one", "found one", "input", "input found", "fall through")');
 
-    test_this_comparator('fall through',
+    test_with_comparators('fall through',
       'dbj.cond("input", "one", "found one", "two", "input found", "fall through")');
 
-    const neq = function(a, b) { return a !== b; };
-    n.msg('switching to user defined simple comparator: ' + neq);
+    dbj.cond.set(function (a, b) { return a !== b; });
 
-    test_this_comparator('found one',
-      'dbj.cond("input", "one", "found one", "input", "input found", "fall through")'
-      , neq);
+    test_with_comparators('found one',
+      'dbj.cond("input", "not input", "found one", "input", "input found", "fall through")'
+      );
 
-    test_this_comparator('fall through',
+    test_with_comparators('fall through',
       'dbj.cond("input", "input", "found one", "input", "input found", "fall through")'
-      , neq);
+      );
 
-    n.msg('done with dbj.cond simple tests ' + neq);
     return true;
   });
 };

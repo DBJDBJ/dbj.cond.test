@@ -22,6 +22,7 @@ and limitations under the License.
 require('../../dbj.nanotest'); // defines dbj.nano
 require('dbj.cond'); // defines dbj.cond
 require('dbj.cond.comparators'); // defines dbj.comparator
+const deep_equal = require('fast-deep-equal');
 // const util = require('util');
 
 /**
@@ -35,13 +36,15 @@ require('dbj.cond.comparators'); // defines dbj.comparator
  *                     jQuery qUnit contains few, etc.
  *
  * It is beyond ESLINT abilities to notice this and thus it complains
- * about every dbj mentioned in a code
+ * about every dbj mentioned in a code, so we use
+   global dbj:true 
  */
 
-function test_this_comparator(compfun, required_rezult, expression) {
+function test_with_comparators (required_rezult, expression) {
 
-  dbj.cond.comparator = compfun;
-  const prompt = expression + ', should return: >' + required_rezult + '<';
+  const prompt =
+      "Using comparators: " + dbj.cond.set() + "\n" +
+      expression + ', should return: >' + required_rezult + '<';
 
   dbj.nano.test(prompt, function(n) {
     const retval = eval(expression);
@@ -50,72 +53,49 @@ function test_this_comparator(compfun, required_rezult, expression) {
       retval === required_rezult
     );
   });
-
-  dbj.cond.comparator = dbj.compare.standard; // switch back
 }
 
 module.exports.run = function() {
 
-  dbj.nano.group("dbj.cond using 'deep-equal' comparator", function(n) {
+    dbj.cond.set(deep_equal);
 
-    const deep_qual = require('deep-equal');
+    dbj.nano.group("dbj.cond complex tests", function (n) {
 
-    test_this_comparator(deep_qual,
+      test_with_comparators(
       'Found!',
       'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
     );
-    return true;
 
-  });
-
-  dbj.nano.group("dbj.cond using 'fast-deep-equal' comparator", function(n) {
-
-    const deep_qual = require('fast-deep-equal');
-
-    test_this_comparator(deep_qual,
+   test_with_comparators(
       'Found!',
       'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
     );
-    return true;
 
-  });
+  dbj.cond.set(dbj.compare.arr, deep_equal);
 
-    dbj.nano.group('dbj.cond using dbj cond arr comparator + fast-deep-equal as secondary comparator',
-
-        function (n) {
-
-    const deep_equal = require('fast-deep-equal');
-    dbj.cond.secondary_comparator = deep_equal;
-
-    test_this_comparator(dbj.compare.arr,
+    test_with_comparators(
         'Found!',
         'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
     );
-        return true;
-});
 
-dbj.nano.group('dbj.cond using dbj cond multi comparator + fast-deep-equal as secondary comparator',
-    function(n) {
+    dbj.cond.set(dbj.compare.lookup, deep_equal);
 
-const deep_equal = require('fast-deep-equal');
-dbj.cond.secondary_comparator = deep_equal;
-
-test_this_comparator(dbj.compare.multi,
+    test_with_comparators(
     'Found!',
     'dbj.cond([1, 2], [3,2], false, 2, "Found!", "None found")'
 );
 
-    test_this_comparator(dbj.compare.multi,
+        test_with_comparators(
         'Found!',
         'dbj.cond([1, 2], [3,2], false, ["2D",[1,2]], "Found!", "None found")'
     );
 
-    test_this_comparator(dbj.compare.multi,
+        test_with_comparators(
         'Found!',
         'dbj.cond(["2D",[1, 2]], [3,2], false, [1,2], "Found!", "None found")'
     );
 
-      test_this_comparator(dbj.compare.multi,
+        test_with_comparators(
       'Found!',
       'dbj.cond([{1:2},{3:4}], {2:3}, false, {3:4}, "Found!", "None found")'
       );

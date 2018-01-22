@@ -26,7 +26,7 @@ exports.run = function () {
     'dbj cond lookup': dbj.compare.lookup,
   };
 
-  console.log('\nBenchmarking\n'.underline.padStart(60));
+  console.log('\nComparators Benchmarking\n'.underline.padStart(60));
 
   for (const equalName in equalPackages) {
     let equalFunc = equalPackages[equalName];

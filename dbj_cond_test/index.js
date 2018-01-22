@@ -17,9 +17,11 @@ and limitations under the License.
 'use strict';
 /* */
 require('./toolbench/dbj/dbj.cond.simplex').run();
+dbj.cond.reset();
 require('./toolbench/dbj/dbj.cond.complex').run();
+dbj.cond.reset();
 require('./toolbench/dbj_comparators_tests/testrun').run();
-require('./toolbench/benchmark/index').run();
+require('./toolbench/comparators_benchmark/index').run();
 /* */
 // eof
 /*

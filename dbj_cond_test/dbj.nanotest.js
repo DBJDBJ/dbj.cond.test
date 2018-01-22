@@ -34,7 +34,7 @@ require('colors');
       console.log((prompt).padEnd(99, ' ').bold.underline.white);
       // console.log();
       cb(dbj.nano);
-      // console.log();
+      console.log();
     },
     'test': function(prompt, cb) {
 

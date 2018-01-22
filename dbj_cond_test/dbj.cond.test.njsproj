@@ -42,7 +42,7 @@
     <Compile Include="LICENSE">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="toolbench\benchmark\index.js" />
+    <Compile Include="toolbench\comparators_benchmark\index.js" />
     <Compile Include="toolbench\dbj_comparators_tests\testlist.js" />
     <Compile Include="toolbench\dbj_comparators_tests\testrun.js" />
     <Content Include=".eslintrc.json" />
@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="toolbench\" />
-    <Folder Include="toolbench\benchmark\" />
+    <Folder Include="toolbench\comparators_benchmark\" />
     <Folder Include="toolbench\dbj_comparators_tests\" />
     <Folder Include="toolbench\dbj\" />
   </ItemGroup>
