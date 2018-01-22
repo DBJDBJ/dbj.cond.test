@@ -37,7 +37,7 @@ require('dbj.cond.comparators');
 function test_with_comparators(required_rezult, expression) {
 
     const prompt =
-        "Using comparators: " + dbj.cond.set() + "\n" +
+        "Using comparators: " + dbj.cond.setcmp() + "\n" +
         expression + ', should return: >' + required_rezult + '<';
 
     dbj.nano.test(prompt, function (n) {
@@ -60,7 +60,7 @@ module.exports.run = function() {
     test_with_comparators('fall through',
       'dbj.cond("input", "one", "found one", "two", "input found", "fall through")');
 
-    dbj.cond.set(function (a, b) { return a !== b; });
+    dbj.cond.setcmp(function (a, b) { return a !== b; });
 
     test_with_comparators('found one',
       'dbj.cond("input", "not input", "found one", "input", "input found", "fall through")'

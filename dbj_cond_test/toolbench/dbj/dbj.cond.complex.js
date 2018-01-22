@@ -43,7 +43,7 @@ const deep_equal = require('fast-deep-equal');
 function test_with_comparators (required_rezult, expression) {
 
   const prompt =
-      "Using comparators: " + dbj.cond.set() + "\n" +
+      "Using comparators: " + dbj.cond.setcmp() + "\n" +
       expression + ', should return: >' + required_rezult + '<';
 
   dbj.nano.test(prompt, function(n) {
@@ -57,7 +57,7 @@ function test_with_comparators (required_rezult, expression) {
 
 module.exports.run = function() {
 
-    dbj.cond.set(deep_equal);
+    dbj.cond.setcmp(deep_equal);
 
     dbj.nano.group("dbj.cond complex tests", function (n) {
 
@@ -71,14 +71,14 @@ module.exports.run = function() {
       'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
     );
 
-  dbj.cond.set(dbj.compare.arr, deep_equal);
+  dbj.cond.setcmp(dbj.compare.arr, deep_equal);
 
     test_with_comparators(
         'Found!',
         'dbj.cond([1, 2], [3,2], false, [1,2], "Found!", "None found")'
     );
 
-    dbj.cond.set(dbj.compare.lookup, deep_equal);
+    dbj.cond.setcmp(dbj.compare.lookup, deep_equal);
 
     test_with_comparators(
     'Found!',
