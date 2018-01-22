@@ -15,9 +15,28 @@ See the License for the specific language governing permissions
 and limitations under the License.
 */
 'use strict';
-
+/* */
 require('./toolbench/dbj/dbj.cond.simplex').run();
 require('./toolbench/dbj/dbj.cond.complex').run();
 require('./toolbench/dbj_comparators_tests/testrun').run();
 require('./toolbench/benchmark/index').run();
+/* */
 // eof
+/*
+the simplest use case
+
+require('dbj.cond');
+const assert = require("assert");
+// switching to user defined comparator 
+dbj.cond.comparator =
+    function myComparator(a, b) { return a !== b; };
+//
+let R1 = dbj.cond("one", "two", "two !== one", "none found!");
+assert(R1 === "two !== one");
+
+// switching back to standard comparator
+dbj.cond.comparator = function strict_eq(a, b) { return a === b; };
+//
+let R2 = dbj.cond("one", "one", "one === one", "none found!");
+assert(R2 === "one === one");
+*/
