@@ -45,6 +45,9 @@
     <Compile Include="toolbench\comparators_benchmark\index.js" />
     <Compile Include="toolbench\dbj_comparators_tests\testlist.js" />
     <Compile Include="toolbench\dbj_comparators_tests\testrun.js" />
+    <Content Include="..\..\..\users\dusan\Downloads\dbj\dbj_shell-20170519T070912Z-001\dbj_shell\dbjtoolbar.hta">
+      <Link>dbjtoolbar.hta</Link>
+    </Content>
     <Content Include=".eslintrc.json" />
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />

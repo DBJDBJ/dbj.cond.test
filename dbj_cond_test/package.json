@@ -11,8 +11,8 @@
   "dependencies": {
     "benchmark": "^2.1.4",
     "colors": "^1.1.2",
-    "dbj.cond": "^3.1.2",
-    "dbj.cond.comparators": "^0.1.4",
+    "dbj.cond": "^4.0.1",
+    "dbj.cond.comparators": "^0.2.0",
     "eslint": "^4.16.0",
     "fast-deep-equal": "^1.0.0"
   },

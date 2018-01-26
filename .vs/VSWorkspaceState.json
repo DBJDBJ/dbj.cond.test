@@ -2,11 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\dbj_cond_test",
+    "\\dbj_cond_test\\node_modules",
+    "\\dbj_cond_test\\node_modules\\dbj.cond.comparators",
     "\\dbj_cond_test\\toolbench",
+    "\\dbj_cond_test\\toolbench\\comparators_benchmark",
     "\\dbj_cond_test\\toolbench\\dbj_comparators_tests",
     "\\qunittest",
     "\\tapetest"
   ],
-  "SelectedNode": "\\dbj_cond_test\\toolbench\\dbj_comparators_tests",
+  "SelectedNode": "\\dbj_cond_test\\node_modules\\dbj.cond.comparators\\package.json",
   "PreviewInSolutionExplorer": false
 }

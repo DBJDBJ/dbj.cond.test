@@ -20,8 +20,6 @@ and limitations under the License.
  *  test dbj complex comparators with cond
  */
 require('../../dbj.nanotest'); // defines dbj.nano
-require('dbj.cond'); // defines dbj.cond
-require('dbj.cond.comparators'); // defines dbj.comparator
 const deep_equal = require('fast-deep-equal');
 // const util = require('util');
 

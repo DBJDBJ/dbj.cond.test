@@ -4,7 +4,7 @@
 
 exports.run = function () {
 
-  require('dbj.cond.comparators');
+ // already done on app startup in index.js --> require('dbj.cond.comparators');
   require('colors');
   const fast_deep_equal = require('fast-deep-equal');
   // const strictEqual = require('assert').deepStrictEqual;

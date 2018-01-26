@@ -3,8 +3,8 @@
 /*global dbj:true*/
 
 exports.run = function() {
-  require('../../dbj.nanotest'); // dbj.nano
-  require('dbj.cond.comparators'); // dbj.compare
+    require('../../dbj.nanotest'); // dbj.nano
+  // already done on app startup in index.js --> require('dbj.cond.comparators');
   const fast_deep_eq = require('fast-deep-equal');
   const tests = require('./testlist');
   // const assert = require('assert');

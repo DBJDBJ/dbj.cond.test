@@ -20,8 +20,12 @@ and limitations under the License.
  *  test shallow aka simplex comparators with dbj cond
  */
 require('../../dbj.nanotest'); // defines dbj.nano
+/*
+already done in index.js
+
 require('dbj.cond');
 require('dbj.cond.comparators');
+*/
 
 /**
  * At this point both dbj and dbj_comparators are equal
